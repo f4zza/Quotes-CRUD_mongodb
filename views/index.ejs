@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY CRUD</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1 data-position="header">Some Quotes For You.</h1>
+
+  <section data-position="add-quote">
+    <h2>Add quote</h2>
+
+    <form action="/quotes" method="POST">
+      <input type="text" placeholder="name" name="name" />
+      <input type="text" placeholder="quote" name="quote" />
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <section data-position="update-quote">
+    <div>
+      <h2>Ernest Hemingway invades!</h2>
+      <p>
+        Replace first Mark Twain's quote with a quote written by Ernest Hemingway
+      </p>
+      <button id="update-button">Replace Mark Twain's quote</button>
+    </div>
+  </section>
+
+  <section data-position="delete-quote">
+    <div>
+      <h2>Remove Ernest Hemingway!</h2>
+      <p>
+        Delete one Ernest Hemingway's quote. Does nothing if there are no more
+        Ernest Hemingway's quote
+      </p>
+      <button id="delete-button">Delete Ernest Hemingway's quote</button>
+    </div>
+    <div id="message"></div>
+  </section>
+
+  <section data-position="quotes">
+    <h2>Quotes</h2>
+
+    <ul class="quotes">
+      <% for(var i = 0; i < quotes.length; i++) {%>
+      <li class="quote">
+        <span><%= quotes[i].name %></span>:
+        <span><%= quotes[i].quote %></span>
+      </li>
+      <% } %>
+    </ul>
+  </section>
+</body>
+</html>
