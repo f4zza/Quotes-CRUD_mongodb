@@ -2,9 +2,13 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
+const dotenv = require('dotenv').config({
+  path: './not_public/key.env'
+})
 
 
-const connectionString = //<replace_with_mongoString>
+
+const connectionString = process.env.keyForMongo
 
 MongoClient.connect(connectionString, {useUnifiedTopology: true})
         .then(client => {
